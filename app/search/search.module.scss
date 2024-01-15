@@ -4,6 +4,7 @@
 // 모달 Modal
 
 $modal-Y: 0; // Modal 등장위치
+
 .modal {
   width: 100%;
   height: 100%;
@@ -14,12 +15,22 @@ $modal-Y: 0; // Modal 등장위치
   z-index: 8;
   overflow: auto;
   animation: modalSlideUp .2s ease-out;
-  
+  .modal_btns {
+    position: absolute;
+    right: 16px;
+    bottom: 16px;
+    .close {
+      font-size: 72px;
+    }
+  }
   .modal_content {
     display: flex;
     flex-wrap: wrap;
     .modal_img {
+      width: 100px;
+      height: 100px;
       margin: 16px;
+      position: relative;
     }
   }
 }

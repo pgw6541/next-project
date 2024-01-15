@@ -82,34 +82,33 @@ export default function Category() {
     <div>
       {/* Modal */}
       <Modal show={modalShow} hide={!modalShow} >
-      <div className={search.modal_btns}>
-          <span className={search.close} onClick={()=>{setModalShow(false)}}>&times;</span>
-        </div>
         { modalContent === 'brand' &&
           brands?.map((brand, i)=>(
-            <div key={i} onClick={()=>{selectBrandHandler(brand.brand.kr); setModalShow(false)}} >
+            <div className={search.modal_img} key={i} onClick={()=>{selectBrandHandler(brand.brand.kr); setModalShow(false)}} >
               <Image
               src={`https://raw.githubusercontent.com/pgw6541/CarSite/main/src/images/logo/${brand.brand.en}.png`}
-              width={60}
-              height={60}
               alt={brand.brand.kr}
+              layout='fill'
+              objectFit='contain'
               />
             </div>  
           ))
         }
         { modalContent === 'segment' &&
           segments?.map((segment, i)=>(
-            <div key={i} onClick={()=>{selectSegmentHandler(segment); setModalShow(false)}}>
+            <div className={search.modal_img} key={i} onClick={()=>{selectSegmentHandler(segment); setModalShow(false)}}>
               <Image
               src={`https://via.placeholder.com/60x60?text=${segment}`}
-              className={search.modal_img}
-              width={60}
-              height={60}
               alt={segment}
+              layout='fill'
+              objectFit='contain'
               />
-            </div>  
+            </div>
           ))
         }
+        <div className={search.modal_btns}>
+            <span className={search.close} onClick={()=>{setModalShow(false)}}>&times;</span>
+        </div>
       </Modal>
       {/* 검색창 */}
       <div className={`${search.searchBar} ${search.container} `}>
