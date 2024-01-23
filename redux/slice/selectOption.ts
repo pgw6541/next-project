@@ -11,7 +11,7 @@ const initialState: SelectOptionState = {
   segment: '',
 }
 
-export const selectOption = createSlice({
+export const selectOptionSlice = createSlice({
   name: 'selectOption',
   initialState,
   reducers: {
@@ -24,4 +24,4 @@ export const selectOption = createSlice({
   },
 });
 
-export const { setBrand, setSegment } = selectOption.actions;
+export const { setBrand, setSegment } = selectOptionSlice.actions;

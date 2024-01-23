@@ -3,14 +3,14 @@ import { Car } from '@/types/types';
 
 const initialState:Car[] = []
 
-export const chooseCar = createSlice({
+export const chooseCarSlice = createSlice({
   name: 'chooseCar',
   initialState,
   reducers: {
     setChoose: (state, action: PayloadAction<Car[]>) => {
-      state = action.payload;
+      return action.payload;
     },
   },
 });
 
-export const { setChoose } = chooseCar.actions;
+export const { setChoose } = chooseCarSlice.actions;

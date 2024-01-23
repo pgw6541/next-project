@@ -1,12 +1,12 @@
 import { configureStore } from '@reduxjs/toolkit';
-import { selectOption } from './slice/selectOption';
-import { chooseCar } from './slice/chooseCar';
+import { selectOptionSlice } from './slice/selectOption';
+import { chooseCarSlice } from './slice/chooseCar';
 
 export const store = configureStore({
   // 리듀서
   reducer: {
-    selectOption: selectOption.reducer,
-    chooseCar: chooseCar.reducer,
+    selectOption: selectOptionSlice.reducer,
+    chooseCar: chooseCarSlice.reducer,
   }
 })
 
