@@ -90,15 +90,10 @@ export default function Category() {
   const [filterSeg, setFilterSeg] = useState<Car[]>(carData);
   // const [chooseCar, setChooseCar] = useState<Car[]>(carData);
   
-
-  useEffect(() => {
-    setChoose(carData)
-  }, [carData])
-
   useEffect(() => {
     setFilterBrand(carData)
     setFilterSeg(carData)
-    // setChoose(carData)
+    dispatch(setChoose(carData))
   }, [carData])
 
   useEffect(() => {
@@ -122,19 +117,17 @@ export default function Category() {
 
   useEffect(() => {
     if(selectOption.brand!='' && selectOption.segment===''){
-      setChoose(filterBrand)
+      dispatch(setChoose(filterBrand))
     }
     if(selectOption.brand==='' && selectOption.segment!=''){
-      setChoose(filterSeg)
+      dispatch(setChoose(filterSeg))
     }
     if(selectOption.brand!='' && selectOption.segment!=''){
-      setChoose(filterBrand.filter( e => e.segment === selectOption.segment));
+      dispatch(setChoose(filterBrand.filter( e => e.segment === selectOption.segment)));
     }
     // 종속성 경고off 주석
     // eslint-disable-next-line react-hooks/exhaustive-deps
-  }, [carData, filterBrand, filterSeg])
-
-  console.log(chooseCar)
+  }, [filterBrand, filterSeg])
   
   // 모달 열고 닫기
   const openModal = (content: string) => {
