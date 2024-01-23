@@ -3,7 +3,9 @@
 import { useState, useEffect } from "react";
 import { useCarData } from "@/hook/useData";
 import { useAppSelector, useAppDispatch } from "@/redux/hook";
+// redux toolkit
 import { setBrand, setSegment } from '@/redux/slice/selectedCar';
+import { setChoose } from '@/redux/slice/chooseCar';
 import search from './search.module.scss';
 import Image from 'next/image';
 import Link from 'next/link';
@@ -108,7 +110,7 @@ export default function Category() {
     }
   }, [carData, selectedCar.segment]) // 변경함수에서 변경감지
 
-  
+
   useEffect(() => {
     if(selectedCar.brand!='' && selectedCar.segment===''){
       setChooseCar(filterBrand)
