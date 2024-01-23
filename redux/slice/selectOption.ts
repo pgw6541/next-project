@@ -1,18 +1,18 @@
 import { createSlice, PayloadAction } from "@reduxjs/toolkit";
 // import { Car } from '@/types/types';
 
-interface SelectedCarState {
+interface SelectOptionState {
   brand: string;
   segment: string;
 }
 
-const initialState: SelectedCarState = {
+const initialState: SelectOptionState = {
   brand: '',
   segment: '',
 }
 
-export const selectedCar = createSlice({
-  name: 'selectedCar',
+export const selectOption = createSlice({
+  name: 'selectOption',
   initialState,
   reducers: {
     setBrand: (state, action: PayloadAction<string>) => {
@@ -24,4 +24,4 @@ export const selectedCar = createSlice({
   },
 });
 
-export const { setBrand, setSegment } = selectedCar.actions;
+export const { setBrand, setSegment } = selectOption.actions;

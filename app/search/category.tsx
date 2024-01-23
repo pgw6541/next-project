@@ -3,16 +3,15 @@
 import { useState, useEffect } from "react";
 import { useCarData } from "@/hook/useData";
 import { useAppSelector, useAppDispatch } from "@/redux/hook";
-// redux toolkit
-import { setBrand, setSegment } from '@/redux/slice/selectedCar';
-import { setChoose } from '@/redux/slice/chooseCar';
 import search from './search.module.scss';
 import Image from 'next/image';
 import Link from 'next/link';
 
+// redux toolkit
+import { setBrand, setSegment } from '@/redux/slice/selectOption';
+import { setChoose } from '@/redux/slice/chooseCar';
 // Components
 import Modal from './modal'
-
 // Type
 import { Car } from "@/types/types";
 
@@ -34,11 +33,16 @@ interface Brand {
 
 export default function Category() {
   const carData = useCarData(); // 자동차DB
-  const [selectedCar, dispatch] = [useAppSelector(state => state.selectedCar), useAppDispatch()]; // redux
-  const [brands, setBrands] = useState<Brand[]>()  // 브랜드리스트
-  const [segments, setSegments] = useState<string[]>() // 차급리스트
+  const selectOption = useAppSelector(state => state.selectOption); // 차량선택
+  const chooseCar = useAppSelector(state => state.chooseCar);
+  const dispatch = useAppDispatch();
+
+  // Modal
   const [modalShow, setModalShow] = useState(false);
   const [modalContent, setModalContent] = useState('');
+
+  const [brands, setBrands] = useState<Brand[]>()  // 브랜드리스트
+  const [segments, setSegments] = useState<string[]>() // 차급리스트
 
   // 브랜드목록, 차급 목록 가져오기(비동기)
   useEffect(() => {
@@ -84,46 +88,53 @@ export default function Category() {
   // 아무것도 선택하지않았다면 차량 전체 목록
   const [filterBrand, setFilterBrand] = useState<Car[]>(carData);
   const [filterSeg, setFilterSeg] = useState<Car[]>(carData);
-  const [chooseCar, setChooseCar] = useState<Car[]>(carData);
+  // const [chooseCar, setChooseCar] = useState<Car[]>(carData);
+  
+
+  useEffect(() => {
+    setChoose(carData)
+  }, [carData])
 
   useEffect(() => {
     setFilterBrand(carData)
     setFilterSeg(carData)
-    setChooseCar(carData)
+    // setChoose(carData)
   }, [carData])
 
   useEffect(() => {
-    if(selectedCar.brand!=''){
-      const filterBrand = carData.filter((car, i)=> car.brand.kr === selectedCar.brand)
+    if(selectOption.brand!=''){
+      const filterBrand = carData.filter((car, i)=> car.brand.kr === selectOption.brand)
       setFilterBrand(filterBrand);
     } else {
       setFilterBrand(carData)
     }
-  }, [carData, selectedCar.brand]) // 변경함수에서 변경감지
+  }, [carData, selectOption.brand]) // 변경함수에서 변경감지
    
   useEffect(() => {
-    if(selectedCar.segment!=''){
-      const filterSegment = carData.filter((car, i)=> car.segment === selectedCar.segment)
+    if(selectOption.segment!=''){
+      const filterSegment = carData.filter((car, i)=> car.segment === selectOption.segment)
       setFilterSeg(filterSegment)
     } else {
       setFilterSeg(carData)
     }
-  }, [carData, selectedCar.segment]) // 변경함수에서 변경감지
+  }, [carData, selectOption.segment]) // 변경함수에서 변경감지
 
 
   useEffect(() => {
-    if(selectedCar.brand!='' && selectedCar.segment===''){
-      setChooseCar(filterBrand)
+    if(selectOption.brand!='' && selectOption.segment===''){
+      setChoose(filterBrand)
     }
-    if(selectedCar.brand==='' && selectedCar.segment!=''){
-      setChooseCar(filterSeg)
+    if(selectOption.brand==='' && selectOption.segment!=''){
+      setChoose(filterSeg)
     }
-    if(selectedCar.brand!='' && selectedCar.segment!=''){
-      setChooseCar(filterBrand?.filter( e => e.segment === selectedCar.segment));
+    if(selectOption.brand!='' && selectOption.segment!=''){
+      setChoose(filterBrand.filter( e => e.segment === selectOption.segment));
     }
-
+    // 종속성 경고off 주석
     // eslint-disable-next-line react-hooks/exhaustive-deps
   }, [carData, filterBrand, filterSeg])
+
+  console.log(chooseCar)
   
   // 모달 열고 닫기
   const openModal = (content: string) => {
@@ -175,14 +186,14 @@ export default function Category() {
         <li className={search.li} >
           <div onClick={()=>{openModal('brand')}}>
             <div  className={search.title}><span>제조사</span></div>
-            <div className={search.selected}>{selectedCar.brand}</div>
+            <div className={search.selected}>{selectOption.brand}</div>
           </div>
         </li>
         {/* 차급 Segment */}
         <li className={search.li}>
           <div onClick={()=>{openModal('segment')}}>
             <div className={search.title}><span>차급</span></div>
-            <div className={search.selected}>{selectedCar.segment}</div>
+            <div className={search.selected}>{selectOption.segment}</div>
           </div>
         </li>
       </ul>
