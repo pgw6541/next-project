@@ -1,7 +1,10 @@
+import CarList from './carList';
+
 export default function List(){
 
-    return (
-        <div>리스트입니다.</div>
-    )
-
+  return (
+    <div>
+      <CarList />
+    </div>
+  )
 }
