@@ -192,11 +192,10 @@ export default function Category() {
         </li>
       </ul>
 
-      {/* 하단버튼 */}
-      <div className='bottomBtns'>
-        <div className='reset'>초기화</div>
-        {/* 선택완료 버튼 */}
-        <Link href={'/list'} className='complete'>{chooseCar?.length}개의 차량 보러가기</Link>
+      {/* Category 하단버튼 */}
+      <div className={search.bottomBtns}>
+        <div className={`${search.btn}, ${search.reset}`}>초기화</div>
+        <Link href={'/list'} className={`${search.btn}, ${search.complete}`}>{chooseCar?.length}개의 차량 보러가기</Link>
       </div>
 
       
