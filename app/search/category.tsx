@@ -94,6 +94,7 @@ export default function Category() {
     setFilterBrand(carData)
     setFilterSeg(carData)
     dispatch(setChoose(carData))
+    // eslint-disable-next-line react-hooks/exhaustive-deps
   }, [carData])
 
   useEffect(() => {
@@ -191,10 +192,11 @@ export default function Category() {
         </li>
       </ul>
 
-      {/* 선택완료 버튼 */}
-      <div className={search.btns}>
-        <div className={search.reset}>초기화</div>
-        <Link href={'/list'} className={search.complete}>{chooseCar?.length}개의 차량 보러가기</Link>
+      {/* 하단버튼 */}
+      <div className='bottomBtns'>
+        <div className='reset'>초기화</div>
+        {/* 선택완료 버튼 */}
+        <Link href={'/list'} className='complete'>{chooseCar?.length}개의 차량 보러가기</Link>
       </div>
 
       
