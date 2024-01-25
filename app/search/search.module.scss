@@ -70,25 +70,3 @@ $modal-Y: 0; // Modal 등장위치
   }
 }
 
-// 하단 버튼
-.btns {
-  width: 100%;
-  height: 30px;
-  // flex
-  display: flex;
-  justify-content: space-evenly;
-  // position fixed
-  position: fixed;
-  left: 0;
-  bottom: 100px;
-  // 버튼 공통 스타일
-  button {
-    border-radius: 5px;
-  }
-  button.reset {
-    width: 30%;
-  }
-  button.complete {
-    width: 50%;
-  }
-}
