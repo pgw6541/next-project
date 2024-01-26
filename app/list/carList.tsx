@@ -29,18 +29,20 @@ export default function CarList(){
     <div className="container">
 
       <div className={list.listNav}>
-        <div className={list.options}>
-          <div>
-            {selectBrand ? selectBrand : 'All'}
-          </div>
-          <div>
-          {selectSeg ? selectSeg : 'All'}
-          </div>
-        </div>
-        <div className={list.filtering}>
-          <button>연료</button>
-          <button>연비순</button>
-          <button>가격순</button>
+        {/* 버튼들 */}
+        <div className={list.btns}>
+          {/* 조건 다시설정하러가기 */}
+          <div className={`${list.btn} ${list.selec}`}></div>
+
+          {/* 브랜드 */}
+          <div className={`${list.btn} ${list.brand}`}></div>
+
+          {/* 세그먼트 */}
+          <div className={`${list.btn} ${list.segment}`}></div>
+
+          {/* 정렬 */}
+          <div className={`${list.btn} ${list.sort}`}></div>
+
         </div>
       </div>
 
