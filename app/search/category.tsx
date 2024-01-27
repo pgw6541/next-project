@@ -94,8 +94,7 @@ export default function Category() {
     setFilterBrand(carData)
     setFilterSeg(carData)
     dispatch(setChoose(carData))
-    // eslint-disable-next-line react-hooks/exhaustive-deps
-  }, [carData])
+  }, [carData, dispatch])
 
   useEffect(() => {
     if(selectOption.brand!=''){
@@ -128,7 +127,8 @@ export default function Category() {
     }
     // 종속성 경고off 주석
     // eslint-disable-next-line react-hooks/exhaustive-deps
-  }, [filterBrand, filterSeg])
+    
+  }, [carData, filterBrand, filterSeg, dispatch, selectOption.brand, selectOption.segment])
   
   // 모달 열고 닫기
   const openModal = (content: string) => {
