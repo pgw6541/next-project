@@ -5,8 +5,8 @@ import { useEffect } from "react";
 import Link from "next/link";
 
 
-import { useAppSelector, useAppDispatch } from "@/redux/hook"
-import { setChoose } from "@/redux/slice/chooseCar";
+import { useAppSelector, useAppDispatch } from "@/store/hook"
+import { setChoose } from '@/store/slice/chooseCar';
 import { useCarData } from "@/hook/useData";
 
 
@@ -19,8 +19,8 @@ export default function CarList(){
    
   useEffect(()=>{
     if(chooseCar.length===0){
-      dispatch(setChoose(carData))
       console.log('비어있음')
+      dispatch(setChoose(carData))
     }
   // eslint-disable-next-line react-hooks/exhaustive-deps
   }, [carData])

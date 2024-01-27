@@ -1,6 +1,6 @@
 import type { Metadata } from 'next'
 import { Inter } from 'next/font/google'
-import { Providers } from '@/redux/provider'
+import { Providers } from '@/store/provider'
 
 import Footer from '../components/footer/footer'
 import Nav from '../components/nav/nav'

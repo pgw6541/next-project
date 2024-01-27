@@ -2,14 +2,14 @@
 
 import { useState, useEffect } from "react";
 import { useCarData } from "@/hook/useData";
-import { useAppSelector, useAppDispatch } from "@/redux/hook";
+import { useAppSelector, useAppDispatch } from "@/store/hook";
 import search from './search.module.scss';
 import Image from 'next/image';
 import Link from 'next/link';
 
 // redux toolkit
-import { setBrand, setSegment } from '@/redux/slice/selectOption';
-import { setChoose } from '@/redux/slice/chooseCar';
+import { setBrand, setSegment } from '@/store/slice/selectOption';
+import { setChoose } from '@/store/slice/chooseCar';
 // Components
 import Modal from './modal'
 // Type
