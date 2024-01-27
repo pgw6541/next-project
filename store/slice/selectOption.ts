@@ -1,5 +1,4 @@
 import { createSlice, PayloadAction } from "@reduxjs/toolkit";
-// import { Car } from '@/types/types';
 
 interface SelectOptionState {
   brand: string;
