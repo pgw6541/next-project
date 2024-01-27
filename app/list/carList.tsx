@@ -32,16 +32,24 @@ export default function CarList(){
         {/* 버튼들 */}
         <div className={list.btns}>
           {/* 조건 다시설정하러가기 */}
-          <div className={`${list.btn} ${list.selec}`}></div>
+          <div className={`${list.btn} ${list.selec}`}>
+            <p>&lt; 조건</p>
+          </div>
 
           {/* 브랜드 */}
-          <div className={`${list.btn} ${list.brand}`}></div>
+          <div className={`${list.btn} ${list.brand}`}>
+            <p>브랜드</p>
+          </div>
 
           {/* 세그먼트 */}
-          <div className={`${list.btn} ${list.segment}`}></div>
+          <div className={`${list.btn} ${list.segment}`}>
+            <p>차급</p>
+          </div>
 
           {/* 정렬 */}
-          <div className={`${list.btn} ${list.sort}`}></div>
+          <div className={`${list.btn} ${list.sort}`}>
+            <p>정렬</p>
+          </div>
 
         </div>
       </div>
