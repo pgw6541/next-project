@@ -23,5 +23,5 @@ export const useCarData = () => {
     fetchData();
   }, [])
 
-  return carData; // useCarData()함수에 carData할당
+  return carData; // useCarData()함수에 carData를 리턴
 }
