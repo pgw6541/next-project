@@ -32,9 +32,9 @@ export default function CarList(){
         {/* 버튼들 */}
         <div className={list.btns}>
           {/* 조건 다시설정하러가기 */}
-          <div className={`${list.btn} ${list.selec}`}>
+          <Link href={'/search'} className={`${list.btn} ${list.selec}`}>
             <p>&lt; 조건</p>
-          </div>
+          </Link>
 
           {/* 브랜드 */}
           <div className={`${list.btn} ${list.brand}`}>
