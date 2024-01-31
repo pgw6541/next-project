@@ -1,4 +1,4 @@
-.listNav {
+.Nav {
   width: 100%;
   height: 32px;
   border: 1px solid #000;
@@ -13,5 +13,23 @@
       align-self: center;
       text-align: center;
     }
+  }
+}
+// Car
+.section {
+  width: 100%;
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: space-around;
+  
+  .box {
+    $border_weight: 0px;
+
+    width: calc(100% - ( #{$border_weight} * 2 ) );
+    border: $border_weight solid #000;
+    margin-top: 32px;
+    display: flex;
+    align-items: center;
+    .img {}
   }
 }
