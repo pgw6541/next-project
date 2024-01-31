@@ -1,8 +1,14 @@
 'use client'
 
-import list from './list.module.scss'
 import { useEffect } from "react";
+import list from './list.module.scss'
 import Link from "next/link";
+import Image from "next/image";
+
+// import { IoIosArrowDown, IoIosArrowBack } from "react-icons/io";
+import { FaSortAmountDownAlt } from "react-icons/fa";
+import { FiChevronLeft, FiChevronDown, FiGrid, FiList } from "react-icons/fi";
+
 
 
 import { useAppSelector, useAppDispatch } from "@/store/hook"
@@ -28,36 +34,45 @@ export default function CarList(){
   return (
     <div className="container">
 
-      <div className={list.listNav}>
+      <div className={list.Nav}>
         {/* 버튼들 */}
         <div className={list.btns}>
           {/* 조건 다시설정하러가기 */}
-          <Link href={'/search'} className={`${list.btn} ${list.selec}`}>
-            <p>&lt; 조건</p>
-          </Link>
+          {/* <Link href={'/search'} className={`${list.btn} ${list.selec}`}>
+            <p><FiChevronLeft /></p>
+          </Link> */}
 
           {/* 브랜드 */}
           <div className={`${list.btn} ${list.brand}`}>
-            <p>브랜드</p>
+            <p>{selectBrand} <FiChevronDown /></p>
           </div>
 
           {/* 세그먼트 */}
           <div className={`${list.btn} ${list.segment}`}>
-            <p>차급</p>
+            <p>{selectSeg} <FiChevronDown /></p>
           </div>
 
           {/* 정렬 */}
           <div className={`${list.btn} ${list.sort}`}>
-            <p>정렬</p>
+            <p><FaSortAmountDownAlt /></p>
           </div>
 
         </div>
       </div>
-
-      <div>
+      {/* Car Section */}
+      <div className={`${list.section}`}>
         {
           chooseCar.map((car, i)=> (
-            <p key={i}>{car.name.kr}</p>
+            <Link href={'/detail'} className={`${list.box}`} key={i}>
+              <Image 
+                className={`${list.img}`} 
+                src={`https://raw.githubusercontent.com/pgw6541/CarSite/main/src/images/${car.imgUrl}.png`}
+                alt={car.name.en}
+                width={360}
+                height={153}
+              />
+              <p>{car.name.kr}</p>
+            </Link>
           ))
         }
       </div>
