@@ -1,7 +1,7 @@
 'use client'
 
 import { useState, useEffect } from "react";
-import { useCarData } from "@/hook/useData";
+import { useCarData, useBrandData } from "@/hook/useData";
 import { useAppSelector, useAppDispatch } from "@/store/hook";
 import search from './search.module.scss';
 import Image from 'next/image';
@@ -13,26 +13,11 @@ import { setChoose } from '@/store/slice/chooseCar';
 // Components
 import Modal from './modal'
 // Type
-import { Car } from "@/types/types";
-
-interface CarData {
-  brand : {
-    kr: string,
-    en: string,
-  },
-  imgUrl: string;
-}
-
-interface Brand {
-  brand : {
-    kr: string,
-    en: string,
-  },
-  imgUrl: string;
-}
+import * as types from "@/types/types";
 
 export default function Category() {
   const carData = useCarData(); // 자동차DB
+  const brandData = useBrandData(); // 제조사DB
   const selectOption = useAppSelector(state => state.selectOption); // 차량선택
   const chooseCar = useAppSelector(state => state.chooseCar);
   const dispatch = useAppDispatch();
@@ -41,35 +26,16 @@ export default function Category() {
   const [modalShow, setModalShow] = useState(false);
   const [modalContent, setModalContent] = useState('');
 
-  const [brands, setBrands] = useState<Brand[]>()  // 브랜드리스트
+  const [brands, setBrands] = useState<types.Brands[]>()  // 브랜드리스트
   const [segments, setSegments] = useState<string[]>() // 차급리스트
 
   // 브랜드목록, 차급 목록 가져오기(비동기)
   useEffect(() => {
-    const uniqueBrands: Brand[] = [];
-    const seenBrands: { [key: string]: boolean } = {};
-    
-    // 브랜드 추가되어도 리스트 자동추가
-    carData.forEach((car: CarData) => {
-      if (!seenBrands[car.brand.kr]) {
-        uniqueBrands.push({
-          brand : {
-            kr: car.brand.kr,
-            en: car.brand.en.toLowerCase().replaceAll(' ','_'),
-          },
-          imgUrl: car.imgUrl
-        });
-        seenBrands[car.brand.kr] = true;
-      }
-    });
-    // 필요에 따라 상위 N개의 요소만 가져오기 나중(6을 매개변수로 바꾼뒤 더보기 기능 만들기)
-    // const limitedBrands = uniqueBrands.slice(0, 6);
-    const limitedBrands = uniqueBrands;
 
     // segmenct 가져오기
     const seg = Array.from( new Set(carData.map(e => e.segment)));
 
-    setBrands(limitedBrands)
+    setBrands(brandData)
     setSegments(seg)
   }, [carData])
 
@@ -86,8 +52,8 @@ export default function Category() {
 
   // 제조사, 차급 선택시 선택완료 버튼에 차량 갯수 표시 및 0개라면 비활성화 기능
   // 아무것도 선택하지않았다면 차량 전체 목록
-  const [filterBrand, setFilterBrand] = useState<Car[]>(carData);
-  const [filterSeg, setFilterSeg] = useState<Car[]>(carData);
+  const [filterBrand, setFilterBrand] = useState<types.Car[]>(carData);
+  const [filterSeg, setFilterSeg] = useState<types.Car[]>(carData);
   // const [chooseCar, setChooseCar] = useState<Car[]>(carData);
   
   useEffect(() => {
@@ -142,10 +108,10 @@ export default function Category() {
       <Modal show={modalShow} hide={!modalShow} >
         { modalContent === 'brand' &&
           brands?.map((brand, i)=>(
-            <div className={search.modal_img} key={i} onClick={()=>{selectBrandHandler(brand.brand.kr); setModalShow(false)}} >
+            <div className={search.modal_img} key={i} onClick={()=>{selectBrandHandler(brand.name.kr); setModalShow(false)}} >
               <Image
-              src={`https://raw.githubusercontent.com/pgw6541/CarSite/main/src/images/logo/${brand.brand.en}.png`}
-              alt={brand.brand.kr}
+              src={`https://raw.githubusercontent.com/pgw6541/CarSite/main/src/images/${brand.imgUrl}.png`}
+              alt={brand.name.kr}
               fill
               sizes="100px, 100px"
               />

@@ -5,13 +5,6 @@ export interface Brands {
   imgUrl : string
 }
 
-// Brand.tsx
-// export interface TabPanelProps {
-//   children?: React.ReactNode;
-//   index: number;
-//   value: number;
-// }
-
 // carData.json
 interface Car {
   brand: {
