@@ -1,7 +1,7 @@
 'use client'
 
 import { useState, useEffect } from "react";
-import { useCarData, useBrandData } from "@/hook/useData";
+import { useCarData, useBrandData } from "@/hooks/useData";
 import { useAppSelector, useAppDispatch } from "@/store/hook";
 import search from './search.module.scss';
 import Image from 'next/image';
