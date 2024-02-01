@@ -1,7 +1,5 @@
-export default function List(){
-
+export default function Detail(){
   return (
-    <div>디테일페이지</div>
-    
+    <div>디테일 페이지</div>
   )
 }
