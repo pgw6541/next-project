@@ -47,6 +47,17 @@ footer {
   height: 200px;
 }
 
+// 링크 밑줄, 색상
+a {
+	text-decoration-line: none;
+	&:link {
+		color: #000;
+	}
+	&:visited {
+		color: #000;
+	}
+}
+
 // 하단 Navigation
 .nav {
   width: 100%;
