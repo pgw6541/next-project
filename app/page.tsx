@@ -1,10 +1,11 @@
-import Car from '../components/carView/carData'
+import Link from "next/link";
+
 
 export default function Home() {
 
   return (
     <div>
-      {/* <Car /> */}
+      <Link href={'/search'}>검색</Link>
     </div>
   )
 }
