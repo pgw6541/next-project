@@ -1,0 +1,16 @@
+.link_container {
+  width: 90%;
+  height: 30px;
+  border: 1px solid #000;
+  border-radius: 50px;
+  position: relative;
+  left: 50%;
+  top: 50px;
+  transform: translateX(-50%);
+  a {
+    position: absolute;
+    top: 50%;
+    left: 16px;
+    transform: translateY(-50%);
+  }
+}

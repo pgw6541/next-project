@@ -1,11 +1,12 @@
 'use client'
 
 import { useState, useEffect } from "react";
-import { useCarData, useBrandData } from "@/hooks/useData";
-import { useAppSelector, useAppDispatch } from "@/store/hook";
 import search from './search.module.scss';
 import Image from 'next/image';
 import Link from 'next/link';
+
+import { useCarData, useBrandData } from "@/hooks/useData";
+import { useAppSelector, useAppDispatch } from "@/store/hook";
 
 // redux toolkit
 import { setBrand, setSegment } from '@/store/slice/selectOption';

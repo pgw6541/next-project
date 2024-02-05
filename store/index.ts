@@ -15,7 +15,7 @@ const reducers = combineReducers({
 const persistConfig = {
   key: 'root',
   storage,
-  whitelist: ['selectOption', 'chooseCar']
+  // whitelist: ['selectOption', 'chooseCar']
 };
 
 const persistedReducer = persistReducer(persistConfig, reducers)
