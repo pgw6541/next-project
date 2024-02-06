@@ -32,7 +32,7 @@ export default function Category() {
   // 브랜드목록, 차급 목록 가져오기(비동기)
   useEffect(() => {
     setBrandList(brandData)
-
+    
     // segmenct 가져오기
     const seg = Array.from( new Set(carData.map(e => e.segment)));
     setSegmentList(seg)
