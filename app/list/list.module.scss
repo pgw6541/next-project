@@ -16,23 +16,67 @@
   }
 }
 // Car
-.section {
+
+.car_container {
   width: 100%;
   display: flex;
   flex-wrap: wrap;
-  justify-content: space-around;
+  flex-direction: column;
+  justify-content: flex-start;
   
-  .box {
-    $border_weight: 0px;
-
+  .car_section {
+    $border_weight: 1px;
+    // width: 100%;
     width: calc(100% - ( #{$border_weight} * 2 ) );
-    border: $border_weight solid #000;
-    margin-top: 32px;
+    height: 150px;
+    border-bottom: $border_weight solid #000;
     display: flex;
     align-items: center;
-    .img {
-      width: 50%;
-      height: 100%;
+    .img_ctn {
+      width: 100%;
+      position: relative;
+      .img {
+        max-width: 200px;
+        width: 90%;
+        height: auto;
+        position: absolute;
+        left: 50%;
+        top: 50%;
+        transform: translate(-50%,-50%);
+      }
     }
+    .article {
+      width: 90%;
+      height: 100%;
+      display: flex;
+      flex-direction: column;
+      justify-content: space-around;
+      .name {
+        display: inherit;
+        justify-content: flex-start;
+        margin-bottom: 16px;
+        background-color: #aaa;
+      }
+      .InfoBtn {
+        display: inherit;
+        width: 100%;
+        justify-content: center;
+        background-color: #aaa;
+      }
+    }
+  }
+
+  .info_section {
+    width: 100%;
+    padding: 32px 16px;
+    display: flex;
+    justify-content: space-around;
+    
+  }
+  .hide {
+    display: none;
+  }
+  .show {
+    display: block;
   }
 }
