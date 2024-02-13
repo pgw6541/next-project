@@ -13,7 +13,7 @@ export default function Nav(){
       </Link>
 
       {/* Search */}
-      <Link href={'/'}>
+      <Link href={'/search'}>
         <RiSearchLine className={nav.icon}></RiSearchLine>
       </Link>
 
