@@ -28,7 +28,7 @@
     $border_weight: 1px;
     // width: 100%;
     width: calc(100% - ( #{$border_weight} * 2 ) );
-    height: 150px;
+    height: 100px;
     border-bottom: $border_weight solid #000;
     display: flex;
     align-items: center;
@@ -55,26 +55,50 @@
         display: inherit;
         justify-content: flex-start;
         margin-bottom: 16px;
-        background-color: #aaa;
+        // background-color: #aaa;
       }
       .InfoBtn {
         display: inherit;
-        width: 100%;
+        width: 80%;
+        padding: 4px 0;
         justify-content: center;
-        background-color: #aaa;
+
+        border: 1px solid #333
+        
       }
     }
   }
 
   .info_section {
     width: 100%;
-    padding: 32px 16px;
+    background: #e8e8e8;
+
+    transition: all 0.3s;
+    overflow: hidden;
+    
+    display: flex;
+    align-items: center;
     justify-content: space-around;
   }
   .hide {
-    display: none;
+    min-height: 0;
+    max-height: 0;
   }
   .show {
-    display: flex;
+    min-height: 100px;
+    max-height: 200px;
+    padding: 16px 0;
+  }
+  // Chart
+  .dl {
+    width: 25%;
+    dt {
+      font-weight: bold;
+      margin-top: 12px;
+    }
+    dd {
+      color: #333;
+      margin-top: 4px;
+    }
   }
 }

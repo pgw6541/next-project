@@ -72,27 +72,28 @@ export default function CarList(){
                     <p>{car.name.kr}</p>
                   </Link>
 
-                  {/* 상세정보 버튼*/}
-                  <div onClick={()=>{handleDetailSec(car.id)}} className={list.InfoBtn}>상세보기</div>
+                  {/* 펼쳐보기 버튼*/}
+                  <div onClick={()=>{handleDetailSec(car.id)}} className={list.InfoBtn}>펼쳐보기</div>
                 </div>
               </div>
               {/* Info */}
               <div className={ car.showDetail ? `${list.info_section} ${list.show}` : `${list.info_section} ${list.hide}` } >
                 {/* info_article 1 */}
-                <div>
-                  <p>옵션1-1</p>
-                  <p>옵션1-2</p>
-                  <p>옵션1-3</p>
-                </div>
+                <dl className={list.dl}>
+                  <dt>가격</dt> <dd>{car.price.min}~{car.price.max}</dd>
+                  <dt>연료</dt> <dd>{car.fuelTypes.map(fuelType => (<div key={i}>{fuelType}</div>))}</dd>
+                  <dt>옵션</dt> <dd>1-3</dd>
+                </dl>
                 {/* info_article 2 */}
-                <div>
-                  <p>옵션2-1</p>
-                  <p>옵션2-2</p>
-                  <p>옵션2-3</p>
-                </div>
+                <dl className={list.dl}>
+                  <dt>옵션</dt> <dd>2-1</dd>
+                  <dt>옵션</dt> <dd>2-2</dd>
+                  <dt>옵션</dt> <dd>2-3</dd>
+                </dl>
               </div>
             </div>
           ))
+          // 선택한 옵션이 없이 경로로 진입했을 떄
           :
           <div>선택한 값이 없거나 잘못된 경로로 접근하였습니다.</div>
         }
