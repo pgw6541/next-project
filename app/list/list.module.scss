@@ -32,6 +32,8 @@
     border-bottom: $border_weight solid #000;
     display: flex;
     align-items: center;
+
+    user-select: none;
     .img_ctn {
       width: 100%;
       position: relative;
@@ -73,7 +75,7 @@
     width: 100%;
     background: #e8e8e8;
 
-    transition: all 0.3s;
+    transition: all .4s;
     overflow: hidden;
     
     display: flex;
