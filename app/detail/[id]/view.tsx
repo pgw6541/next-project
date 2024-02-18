@@ -17,24 +17,28 @@ export default function View() {
     setCar(finding)
   }, [carData, params])
 
-  // console.log(carData)
-  // console.log(params?.id)
-
-
   return (
     <div>
       {
         car
         ?
         <div>
-          <Image
-            className={view.img }
-            src={`https://raw.githubusercontent.com/pgw6541/CarSite/main/src/images/${car.imgUrl}.png`}
-            alt={car.name.en}
-            width={360}
-            height={153}
-          />
-          <div>{car.name.kr}</div>
+          <div className={view.container}>
+            <Image
+              className={view.img}
+              src={`https://raw.githubusercontent.com/pgw6541/CarSite/main/src/images/${car.imgUrl}.png`}
+              alt={car.name.en}
+              width={360}
+              height={153}
+            />
+            <div className={view.article}>
+              <div>{car.brand.kr}</div>
+              <p>{car.name.kr}</p>
+              <div className={view.option}>
+                
+              </div>
+            </div>
+          </div>
         </div>
         :
         <div>잘못된 경로로 접근</div>
