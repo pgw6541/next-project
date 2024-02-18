@@ -22,23 +22,35 @@ export default function View() {
       {
         car
         ?
-        <div>
-          <div className={view.container}>
-            <Image
-              className={view.img}
-              src={`https://raw.githubusercontent.com/pgw6541/CarSite/main/src/images/${car.imgUrl}.png`}
-              alt={car.name.en}
-              width={360}
-              height={153}
-            />
-            <div className={view.article}>
-              <div>{car.brand.kr}</div>
-              <p>{car.name.kr}</p>
-              <div className={view.option}>
-                
-              </div>
+        <div className={view.container}>
+          <Image
+            className={view.img}
+            src={`https://raw.githubusercontent.com/pgw6541/CarSite/main/src/images/${car.imgUrl}.png`}
+            alt={car.name.en}
+            width={360}
+            height={153}
+          />
+          <div className={view.article}>
+            <div>{car.brand.kr}</div>
+            <p>{car.name.kr}</p>
+            {/* 옵션 */}
+            <div className={view.option}>
+
             </div>
           </div>
+
+          {/* 댓글 */}
+          <div className={view.comment_container}>
+            <form action="/">
+              {/* 댓글들 */}
+              <div className={view.comments}>
+                작성된 한줄 평이 없습니다.
+              </div>
+              {/* 댓글작성 */}
+              <input type="text" />
+            </form>
+          </div>
+
         </div>
         :
         <div>잘못된 경로로 접근</div>

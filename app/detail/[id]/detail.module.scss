@@ -1,13 +1,30 @@
 .container {
   width: 100%;
-  .img {
-    width: 100%;
-    height: auto;
-  }
+}
 
-  .article {
+.img {
+  width: 100%;
+  height: auto;
+}
+
+.article {
+  width: 100%;
+  text-align: center;
+}
+
+.comment_container {
+  width: 100%;
+  .comments {
+    width: 80%;
+    border: 1px solid #000;
+    padding: 16px;
+    margin: 0 auto;
+
     text-align: center;
-
-    // .option {}
+  }
+  input {
+    width: 80%;
+    display: block;
+    margin: 0 auto;
   }
 }
