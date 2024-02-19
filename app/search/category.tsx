@@ -5,7 +5,7 @@ import search from './search.module.scss';
 import Image from 'next/image';
 import Link from 'next/link';
 
-import { useCarData, useBrandData } from "@/hooks/useData";
+import { useCarData, useBrandData } from "@/util/useData";
 import { useAppSelector, useAppDispatch } from "@/store/hook";
 
 // redux toolkit

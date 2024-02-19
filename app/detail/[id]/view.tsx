@@ -2,7 +2,7 @@
 
 import { useParams } from "next/navigation"
 import view from "./detail.module.scss"
-import { useCarData } from "@/hooks/useData"
+import { useCarData } from "@/util/useData"
 import { useEffect, useState } from "react"
 import * as types from "@/types/types"
 import Image from "next/image"
@@ -41,13 +41,18 @@ export default function View() {
 
           {/* 댓글 */}
           <div className={view.comment_container}>
-            <form action="/">
-              {/* 댓글들 */}
+            {/* 댓글들 */}
+            {
               <div className={view.comments}>
                 작성된 한줄 평이 없습니다.
               </div>
-              {/* 댓글작성 */}
-              <input type="text" />
+            }
+
+            {/* 한 줄 평 작성 */}
+            <form action="/api/post/new" method="POST">
+              <label>한 줄 평 작성</label>
+              <input name="content" type="text" />
+              <button type="submit">작성</button>
             </form>
           </div>
 

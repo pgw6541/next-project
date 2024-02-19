@@ -1,4 +1,4 @@
-import { MongoClient, MongoClientOptions } from "mongodb";
+import { MongoClient } from "mongodb";
 
 const uri = 'mongodb+srv://admin:rjsdn83@cluster0.2wnrtdf.mongodb.net/?retryWrites=true&w=majority'
 

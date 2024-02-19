@@ -7,7 +7,7 @@ import Image from "next/image";
 
 import { useAppSelector, useAppDispatch } from "@/store/hook"
 import { setChoose } from '@/store/slice/chooseCar';
-import { useCarData } from "@/hooks/useData";
+import { useCarData } from "@/util/useData";
 import * as types from '@/types/types'
 
 interface showDetailCars extends types.Car {
@@ -81,7 +81,7 @@ export default function CarList(){
                 {/* info_article 1 */}
                 <dl className={list.dl}>
                   <dt>가격</dt> <dd>{car.price.min}~{car.price.max}</dd>
-                  <dt>연료</dt> <dd>{car.fuelTypes.map(fuelType => (<div key={i}>{fuelType}</div>))}</dd>
+                  <dt>연료</dt> <dd>{car.fuelTypes.map((fuelType, i) => (<div key={i}>{fuelType}</div>))}</dd>
                   <dt>옵션</dt> <dd>1-3</dd>
                 </dl>
                 {/* info_article 2 */}
