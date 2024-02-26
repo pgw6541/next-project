@@ -8,7 +8,6 @@ export default async function handler(req: any, res: any){
     console.log(req.body)
     
     // return res.status(200).json('완료')
-    return res.status(200).json({ message: '완료'})
+    return res.status(200).redirect('/detail')
   }
-
 }
