@@ -1,13 +1,14 @@
 'use client'
 
-import { useParams } from "next/navigation"
-import view from "./detail.module.scss"
-import { useCarData } from "@/util/useData"
 import { useEffect, useState } from "react"
-import * as types from "@/types/types"
+import { useCarData } from "@/util/useData"
+import { useParams } from "next/navigation"
 import Image from "next/image"
+import view from "./detail.module.scss"
+import * as types from "@/types/types"
+import Comment from "./comment"
 
-export default function View() {
+export default function Content() {
   const carData = useCarData();
   const params = useParams<{ id: string }>()
   const [car, setCar] = useState<types.Car>()
@@ -40,21 +41,7 @@ export default function View() {
           </div>
 
           {/* 댓글 */}
-          <div className={view.comment_container}>
-            {/* 댓글들 */}
-            {
-              <div className={view.comments}>
-                작성된 한줄 평이 없습니다.
-              </div>
-            }
-
-            {/* 한 줄 평 작성 */}
-            <form action="/api/post/new" method="POST">
-              <label>한 줄 평 작성</label>
-              <input name="content" type="text" />
-              <button type="submit">작성</button>
-            </form>
-          </div>
+          <Comment />
 
         </div>
         :

@@ -1,7 +1,7 @@
-import View from "./view"
+import Content from "./content"
 
 export default function Detail(){
   return (
-    <View />
+    <Content />
   )
 }
