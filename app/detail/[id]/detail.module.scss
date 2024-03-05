@@ -9,21 +9,3 @@
   width: 100%;
   text-align: center;
 }
-.comment_container {
-  width: 80%;
-  max-width: 300px;
-  margin: 0 auto;
-  .comments {
-    width: 100%;
-    padding: 16px;
-
-    border: 1px solid #000;
-    box-sizing: border-box;
-    text-align: center;
-  }
-  input {
-    width: 100%;
-    box-sizing: border-box;
-    display: block;
-  }
-}

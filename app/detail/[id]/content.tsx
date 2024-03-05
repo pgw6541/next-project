@@ -6,7 +6,6 @@ import { useParams } from "next/navigation"
 import Image from "next/image"
 import view from "./detail.module.scss"
 import * as types from "@/types/types"
-import Comment from "./comment"
 
 export default function Content() {
   const carData = useCarData();
@@ -39,10 +38,6 @@ export default function Content() {
 
             </div>
           </div>
-
-          {/* 댓글 */}
-          <Comment />
-
         </div>
         :
         <div>잘못된 경로로 접근</div>
