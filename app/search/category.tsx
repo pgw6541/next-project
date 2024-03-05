@@ -4,17 +4,17 @@ import { useState, useEffect } from "react";
 import search from './search.module.scss';
 import Image from 'next/image';
 import Link from 'next/link';
-
 import { useCarData, useBrandData } from "@/util/useData";
-import { useAppSelector, useAppDispatch } from "@/store/hook";
-
 // redux toolkit
+import { useAppSelector, useAppDispatch } from "@/store/hook";
 import { setBrand, setSegment } from '@/store/slice/selectOption';
 import { setChoose } from '@/store/slice/chooseCar';
 // Components
 import Modal from './modal'
 // Type
 import * as types from "@/types/types";
+// react-icon
+import { GrPowerReset } from "react-icons/gr";
 
 export default function Category() {
   const carData = useCarData(); // 자동차DB
@@ -96,9 +96,6 @@ export default function Category() {
 
   return(
     <div>
-
-
-
       {/* Modal */}
       <Modal show={modalShow} hide={!modalShow} >
         { modalContent === 'brand' &&
@@ -154,28 +151,24 @@ export default function Category() {
         </li>
       </ul>
 
-      {/* Category 하단버튼 */}
-      <div className={search.bottomBtns}>
-        <div onClick={()=>{setClear()}} className={`${search.btn}, ${search.reset}`}>초기화</div>
-        
-        {/* 옵션 선택에 따라 상이한 버튼 */}
-        {
-          selectOption.brand==='' && selectOption.segment===''
-          ?
-          <div>옵션을 선택해주세요</div>
-          :
-          chooseCar.length===0
-          ?
-          <div>선택한 옵션에 차량이 없습니다</div>
-          :
-          <Link href={'/list'} className={`${search.btn}, ${search.complete}`}>
-            {chooseCar?.length}개의 차량 보러가기
-          </Link>
-        }
+      {/* 하단 Nav */}
+      <div className={search.bottom}>
+        {/* 상태표시창 */}
+        <div className={search.status}>
+          {
+            chooseCar.length===0
+            ?
+            <div></div>
+            :
+            <div>{chooseCar.length} 개의 차량이 검색되었습니다.</div>
+          }
+        </div>
+        {/* Category 하단버튼 */}
+        <div className={search.bottomBtns}>
+          <div onClick={()=>{setClear()}} className={`${search.btn} ${search.reset}`}><GrPowerReset /></div>
+          <Link href={'/list'} className={`${search.btn} ${search.complete}`}>보러가기</Link>
+        </div>
       </div>
-
-
-
     </div>
   )
 }
