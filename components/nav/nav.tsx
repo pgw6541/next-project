@@ -1,7 +1,8 @@
 import nav from './nav.module.scss'
 import Link from 'next/link';
 
-import { RiHome3Fill, RiUser3Line, RiSearchLine, RiHeart3Fill } from "react-icons/ri";
+import { RiHome5Line, RiUser3Line, RiSearchLine } from "react-icons/ri";
+import { FaRegHeart } from "react-icons/fa6";
 
 export default function Nav(){
 
@@ -9,7 +10,7 @@ export default function Nav(){
     <div className={nav.container}>
       {/* Home */}
       <Link href={'/'}>
-        <RiHome3Fill className={nav.icon}></RiHome3Fill>
+        <RiHome5Line className={nav.icon}></RiHome5Line>
       </Link>
 
       {/* Search */}
@@ -19,7 +20,7 @@ export default function Nav(){
 
       {/* Heart */}
       <Link href={'/'}>
-        <RiHeart3Fill className={nav.icon}></RiHeart3Fill>
+        <FaRegHeart className={nav.icon}></FaRegHeart>
       </Link>
 
       {/* User */}
