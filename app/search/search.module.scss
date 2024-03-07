@@ -1,49 +1,7 @@
 .container {
   padding: 24px;
 }
-// 모달 Modal
 
-$modal-Y: 0; // Modal 등장위치
-
-.modal {
-  width: 100%;
-  height: 100%;
-  background-color: bisque;
-  position: fixed;
-  // left: 50%;
-  transform: translateY( $modal-Y);
-  z-index: 8;
-  overflow: auto;
-  animation: modalSlideUp .2s ease-out;
-  .modal_btns {
-    position: absolute;
-    right: 16px;
-    bottom: 16px;
-    .close {
-      font-size: 72px;
-    }
-  }
-  .modal_content {
-    display: flex;
-    flex-wrap: wrap;
-    .modal_img {
-      width: 100px;
-      height: 100px;
-      margin: 16px;
-      position: relative;
-    }
-  }
-}
-@keyframes modalSlideUp {
-  from {
-    transform: translateY(100%);
-    opacity: 0;
-  }
-  to {
-    transform: translateY($modal-Y);
-    opacity: 1;
-  }
-}
 
 // 검색창
 .searchBar {
@@ -69,7 +27,6 @@ $modal-Y: 0; // Modal 등장위치
     }
   }
 }
-
 
 .bottom {
   width: 100%;
@@ -107,5 +64,48 @@ $modal-Y: 0; // Modal 등장위치
   }
   .complete {
     width: 65%;
+  }
+}
+
+// 모달 Modal
+
+$modal-Y: 0; // Modal 등장위치
+.modal {
+  width: 100%;
+  height: 100%;
+  background-color: bisque;
+  position: fixed;
+  // left: 50%;
+  transform: translateY( $modal-Y);
+  z-index: 8;
+  overflow: auto;
+  animation: modalSlideUp .2s ease-out;
+  .modal_btns {
+    position: absolute;
+    right: 16px;
+    bottom: 16px;
+    .close {
+      font-size: 72px;
+    }
+  }
+  .modal_content {
+    display: flex;
+    flex-wrap: wrap;
+    .modal_img {
+      width: 100px;
+      height: 100px;
+      margin: 16px;
+      position: relative;
+    }
+  }
+}
+@keyframes modalSlideUp {
+  from {
+    transform: translateY(100%);
+    opacity: 0;
+  }
+  to {
+    transform: translateY($modal-Y);
+    opacity: 1;
   }
 }

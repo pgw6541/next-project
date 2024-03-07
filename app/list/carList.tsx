@@ -7,7 +7,7 @@ import Image from "next/image";
 
 import { useAppSelector, useAppDispatch } from "@/store/hook"
 import { setChoose } from '@/store/slice/chooseCar';
-import { useCarData } from "@/util/useData";
+import { useCarData } from "@/util/useCarData";
 import * as types from '@/types/types'
 
 interface showDetailCars extends types.Car {

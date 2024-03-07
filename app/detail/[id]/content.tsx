@@ -1,7 +1,7 @@
 'use client'
 
 import { useEffect, useState } from "react"
-import { useCarData } from "@/util/useData"
+import { useCarData } from "@/util/useCarData"
 import { useParams } from "next/navigation"
 import Image from "next/image"
 import view from "./detail.module.scss"
