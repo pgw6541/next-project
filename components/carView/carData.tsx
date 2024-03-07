@@ -1,6 +1,6 @@
 'use client'
 
-import { useCarData } from "@/util/useData"
+import { useCarData } from "@/util/useCarData"
 import { useEffect } from "react"
 import Image from 'next/image'
 
