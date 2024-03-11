@@ -20,7 +20,7 @@ export default function RootLayout({ children, }: { children: React.ReactNode })
     <html lang="kr" className='container'>
       <body className={inter.className}>
         <Providers>
-          <Loading />
+          {/* <Loading /> */}
           {children}
           <Footer />
           <Nav />
