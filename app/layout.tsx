@@ -2,7 +2,7 @@ import type { Metadata } from 'next'
 import { Inter } from 'next/font/google'
 import { Providers } from '@/store/provider'
 
-import Loading from '@/app/loading'
+// import Loading from '@/app/loading'
 import Footer from '@/components/footer/footer'
 import Nav from '@/components/nav/nav'
 
