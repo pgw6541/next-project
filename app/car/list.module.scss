@@ -17,14 +17,14 @@
 }
 // Car
 
-.car_container {
+.car_section {
   width: 100%;
   display: flex;
   flex-wrap: wrap;
   flex-direction: column;
   justify-content: flex-start;
   
-  .car_section {
+  .car_article {
     $border_weight: 1px;
     // width: 100%;
     width: calc(100% - ( #{$border_weight} * 2 ) );
