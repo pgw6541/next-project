@@ -12,7 +12,7 @@ const inter = Inter({ subsets: ['latin'] })
 
 export const metadata: Metadata = {
   title: 'Next Project',
-  description: '이름 뭐로할까..',
+  description: '국산차',
 }
 
 export default function RootLayout({ children, }: { children: React.ReactNode }) {

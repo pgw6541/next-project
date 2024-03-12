@@ -32,13 +32,11 @@ export default function Content() {
 
   // 선택한 Brand로 변경함수
   const selectBrandHandler = (brand: string) => {
-    // console.log('변경: ' + brand)
     dispatch(setBrand(brand))
     
   }
   // 선택한 Segment로 변경함수
   const selectSegmentHandler = (segment: string) => {
-    // console.log('변경: ' + segment)
     dispatch(setSegment(segment))
   }
   
@@ -52,7 +50,7 @@ export default function Content() {
   return(
     <>
       {/* 옵션 카테고리 */}
-      <ul className={search.container}>
+      <ul>
         {/* 제조사 Brand */}
         <li className={search.li} >
           <div onClick={()=>{openModal('brand')}}>
@@ -71,7 +69,9 @@ export default function Content() {
 
       {/* Modal */}
       <Modal show={modalShow} hide={!modalShow} >
-        { modalContent === 'brand' &&
+        { 
+          modalContent === 'brand'
+          ?
           brandList?.map((brand, i)=>(
             <div className={search.modal_img} key={i} onClick={()=>{selectBrandHandler(brand.name.kr); setModalShow(false)}} >
               <Image
@@ -82,17 +82,10 @@ export default function Content() {
               />
             </div>  
           ))
-        }
-        { modalContent === 'segment' &&
+          :
           segmentList?.map((segment, i)=>(
             <div className={search.modal_img} key={i} onClick={()=>{selectSegmentHandler(segment); setModalShow(false)}}>
               <p>{segment}</p>
-              {/* <Image
-              src={`https://via.placeholder.com/60x60?text=${segment}`}
-              alt={segment}
-              fill
-              sizes="100px, 100px"
-              /> */}
             </div>
           ))
         }

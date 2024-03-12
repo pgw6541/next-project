@@ -7,7 +7,7 @@ import BottomNav from "./bottomNav"
 
 export default function Search() {
   return (
-    <div className={search.container}>
+    <div className="container">
       <SearchBar />
       <Content />
       <BottomNav />

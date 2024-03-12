@@ -38,7 +38,7 @@ export default function SearchBar() {
         {/* Category 하단버튼 */}
         <div className={search.bottomBtns}>
           <div onClick={()=>{setClear()}} className={`${search.btn} ${search.reset}`}><GrPowerReset /></div>
-          <Link href={'/list'} className={`${search.btn} ${search.complete}`}>보러가기</Link>
+          <Link href={'/car'} className={`${search.btn} ${search.complete}`}>보러가기</Link>
         </div>
       </div>
   )
