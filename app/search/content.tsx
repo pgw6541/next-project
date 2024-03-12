@@ -30,10 +30,12 @@ export default function Content() {
     setSegmentList(segData)
   }, [brandData, segData])
 
+  // ChooseCar 함수실행
+  useChoose()
+
   // 선택한 Brand로 변경함수
   const selectBrandHandler = (brand: string) => {
     dispatch(setBrand(brand))
-    
   }
   // 선택한 Segment로 변경함수
   const selectSegmentHandler = (segment: string) => {
@@ -45,8 +47,9 @@ export default function Content() {
     setModalContent(content);
     setModalShow(true);
   }
- 
 
+  
+  
   return(
     <>
       {/* 옵션 카테고리 */}

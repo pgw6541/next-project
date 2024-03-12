@@ -1,7 +1,9 @@
-import Article from "./detail"
+import Info from "./info"
 
 export default function Detail(){
   return (
-    <Article />
+    <div className="container">
+      <Info />
+    </div>
   )
 }

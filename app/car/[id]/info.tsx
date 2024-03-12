@@ -7,7 +7,7 @@ import Image from "next/image"
 import view from "./detail.module.scss"
 import * as types from "@/types/types"
 
-export default function Article() {
+export default function Info() {
   const carData = useCarData();
   const params = useParams<{ id: string }>()
   const [car, setCar] = useState<types.Car>()
