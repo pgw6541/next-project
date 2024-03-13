@@ -2,7 +2,6 @@ import type { Metadata } from 'next'
 import { Inter } from 'next/font/google'
 import { Providers } from '@/store/provider'
 
-// import Loading from '@/app/loading'
 import Footer from '@/components/footer/footer'
 import Nav from '@/components/nav/nav'
 
@@ -20,7 +19,6 @@ export default function RootLayout({ children, }: { children: React.ReactNode })
     <html lang="kr" className='container'>
       <body className={inter.className}>
         <Providers>
-          {/* <Loading /> */}
           {children}
           <Footer />
           <Nav />

@@ -44,6 +44,8 @@ export default function CarList(){
     setCars(changeShow)
   }
 
+  
+
   return (
     // Car Section
     <div className={`${list.car_section}`}>
