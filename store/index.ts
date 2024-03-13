@@ -4,8 +4,7 @@ import { combineReducers } from "@reduxjs/toolkit";
 import storage from "redux-persist/lib/storage";
 import { persistReducer } from "redux-persist";
 // Slice 불러오기
-import { selectOptionSlice } from "./slice/selectOption";
-import { chooseCarSlice } from "./slice/chooseCar";
+import { selectOptionSlice, chooseCarSlice } from "./slice/carHandle";
 
 const reducers = combineReducers({
   selectOption: selectOptionSlice.reducer,

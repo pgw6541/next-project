@@ -2,7 +2,7 @@ import { useEffect, useState } from 'react';
 import { fetchData } from '@/pages/api/getGistData';
 import * as types from '@/types/types'
 import { useAppSelector, useAppDispatch } from "@/store/hook";
-import { setChoose } from '@/store/slice/chooseCar';
+import { setChoose } from '@/store/slice/carHandle';
 
 // chooseCar 변경함수
 export const useChoose = () => {

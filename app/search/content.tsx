@@ -7,8 +7,7 @@ import Link from 'next/link';
 import { useChoose, useBrandData, useSegmentData } from "@/util/useCarData";
 // redux toolkit
 import { useAppSelector, useAppDispatch } from "@/store/hook";
-import { setBrand, setSegment } from '@/store/slice/selectOption';
-import { setChoose } from '@/store/slice/chooseCar';
+import { setBrand, setSegment, setChoose } from '@/store/slice/carHandle';
 
 // react-icon
 import { GrPowerReset } from "react-icons/gr";

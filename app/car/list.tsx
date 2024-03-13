@@ -6,7 +6,7 @@ import Link from "next/link";
 import Image from "next/image";
 
 import { useAppSelector, useAppDispatch } from "@/store/hook"
-import { setChoose } from '@/store/slice/chooseCar';
+import { setChoose } from '@/store/slice/carHandle';
 import { useCarData } from "@/util/useCarData";
 import * as types from '@/types/types'
 
