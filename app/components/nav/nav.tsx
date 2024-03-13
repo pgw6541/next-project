@@ -14,18 +14,13 @@ export default function Nav(){
       </Link>
 
       {/* Search */}
-      <Link href={'/search'}>
+      <Link href={'/carlist'}>
         <RiSearchLine className={nav.icon}></RiSearchLine>
       </Link>
 
       {/* Heart */}
       <Link href={'/'}>
         <FaRegHeart className={nav.icon}></FaRegHeart>
-      </Link>
-
-      {/* User */}
-      <Link href={'/'}>
-        <RiUser3Line className={nav.icon}></RiUser3Line>
       </Link>
     </div>
   )
