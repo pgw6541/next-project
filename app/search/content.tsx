@@ -8,7 +8,6 @@ import { useChoose, useBrandData, useSegmentData } from "@/util/useCarData";
 // redux toolkit
 import { useAppSelector, useAppDispatch } from "@/store/hook";
 import { setBrand, setSegment } from '@/store/slice/selectOption';
-import { setChoose } from '@/store/slice/chooseCar';
 
 // Type
 import * as types from "@/types/types";
@@ -47,8 +46,6 @@ export default function Content() {
     setModalContent(content);
     setModalShow(true);
   }
-
-  
   
   return(
     <>
