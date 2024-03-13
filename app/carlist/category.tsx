@@ -24,8 +24,8 @@ export default function Category() {
   const [brand, segment] = [useAppSelector(state => state.selectOption.brand), useAppSelector(state => state.selectOption.segment)]; // 브랜드, 차급선택
 
   // 브랜드목록, 차급 목록 가져오기
-  const [brandList, setBrandList] = useState<types.Brands[]>(useBrandData())  // 브랜드리스트
-  const [segmentList, setSegmentList] = useState<string[]>(useSegmentData()) // 차급리스트
+  const [brandList, setBrandList] = useState<types.Brands[]>([])  // 브랜드리스트
+  const [segmentList, setSegmentList] = useState<string[]>([]) // 차급리스트
 
   // 상태 변수로 드롭다운 메뉴의 표시 여부를 관리
   const [isBrandDropdownVisible, setIsBrandDropdownVisible] = useState(false);
@@ -75,10 +75,10 @@ export default function Category() {
   }, []);
   
   
-  // useEffect(() => {
-  //   setBrandList(brandData)
-  //   setSegmentList(segData)
-  // }, [brandData, segData])
+  useEffect(() => {
+    setBrandList(brandData)
+    setSegmentList(segData)
+  }, [brandData, segData])
 
   // 선택한 Brand로 변경함수
   const brandHandler = (brand: string) => {
@@ -105,7 +105,15 @@ export default function Category() {
         </div>
         {/* 브랜드 드롭다운 */}
         {isBrandDropdownVisible && (
-          <div className={style.dropdown_content}>브랜드 드롭다운 내용</div>
+          <div className={style.dropdown_content} ref={brandDropdownRef}>
+            {
+              brandList.map((brand, i) =>(
+                <div key={i} className={style.dropdown_item} onClick={()=>{brandHandler(brand.name.kr); toggleBrandDropdown();}}>
+                  {brand.name.kr} 
+                </div>
+              ))
+            }
+          </div>
         )}
         
         {/* 차종 버튼 */}
@@ -116,7 +124,13 @@ export default function Category() {
         </div>
         {/* 차종 드롭다운 */}
         {isSegmentDropdownVisible && (
-          <div className={style.dropdown_content}>차종 드롭다운 내용</div>
+          <div className={style.dropdown_content} ref={segmentDropdownRef}>
+            {
+              segmentList.map((seg, i) =>(
+                <div key={i} className={style.dropdown_item} onClick={()=>{segmentHandler(seg); toggleSegmentDropdown();} }> {seg} </div>
+              ))
+            }
+          </div>
         )}
       </div>
     </div>

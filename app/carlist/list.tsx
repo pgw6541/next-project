@@ -68,7 +68,7 @@ export default function CarList(){
               </Link>
               <div className={style.article}>
                 {/* 차량 이름 */}
-                <Link className={style.name} href={`/car/${car.id}`}>
+                <Link className={style.name} href={`/carlist/${car.id}`}>
                   <p>{car.brand.kr}&nbsp;</p>
                   <p>{car.name.kr}</p>
                 </Link>

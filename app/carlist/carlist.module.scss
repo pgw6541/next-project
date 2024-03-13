@@ -38,18 +38,28 @@
   }
   .dropdown_content {
     width: 75%;
-    height: 100%;
-    position: absolute;
-    background-color: #f9f9f9;
     min-width: 160px;
-    box-shadow: 0px 8px 16px 0px rgba(0,0,0,0.2);
+    // height: 100%;
     padding: 12px 16px;
-    z-index: 1;
+
+    background-color: #f9f9f9;
+    box-shadow: 0px 8px 16px 0px rgba(0,0,0,0.2);
+
+    display: flex;
+    flex-wrap: wrap;
+
+    position: absolute;
     top: $height;
     left: auto;
     right: auto;
-    }
 
+    z-index: 1;
+    }
+    .dropdown_item {
+      padding: 12px 16px;
+      border: 1px solid #000;
+    }
+    user-select: none;
 }
 
 // Car List
