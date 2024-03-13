@@ -24,7 +24,6 @@ export default function CarList(){
   useEffect(()=>{
     if(chooseCar.length===0){
       console.log('비어있음')
-      dispatch(setChoose(carData))
     }
   // eslint-disable-next-line react-hooks/exhaustive-deps
   }, [carData])
@@ -44,14 +43,16 @@ export default function CarList(){
     setCars(changeShow)
   }
 
+  console.log(cars)
+
   
 
   return (
     // Car Section
     <div className={`${list.car_section}`}>
       {
-        cars ?
-        cars.map((car, i)=> (
+        cars?.length!=0 ?
+        cars?.map((car, i)=> (
           <div key={i}>
             {/* Car */}
             <div className={list.car_article}>
@@ -94,7 +95,7 @@ export default function CarList(){
           </div>
         ))
         :
-        <div>로딩중</div>
+        <div>검색된 차량이 없습니다.</div>
       }
     </div>
   )

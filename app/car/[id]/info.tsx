@@ -30,28 +30,30 @@ export default function Info() {
   return (
     <div>
       {
-        car
-        ?
         <div className={view.container}>
-          <Image
-            className={view.img}
-            src={`https://raw.githubusercontent.com/pgw6541/CarSite/main/src/images/${car.imgUrl}.png`}
-            alt={car.name.en}
-            width={360}
-            height={153}
-            priority
-          />
+          {
+            car
+            ?
+            <Image
+              className={view.img}
+              src={`https://raw.githubusercontent.com/pgw6541/CarSite/main/src/images/${car.imgUrl}.png`}
+              alt={car.name.en}
+              width={360}
+              height={153}
+              priority
+            />
+            :
+            <div></div>
+          }
           <div className={view.article}>
-            <div>{car.brand.kr}</div>
-            <p>{car.name.kr}</p>
+            <div>{car?.brand.kr}</div>
+            <p>{car?.name.kr}</p>
             {/* 옵션 */}
             <div className={view.option}>
 
             </div>
           </div>
         </div>
-        :
-        <div>skeleton UI</div>
       }
     </div>
   )
