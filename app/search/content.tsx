@@ -8,6 +8,7 @@ import { useChoose, useBrandData, useSegmentData } from "@/util/useCarData";
 // redux toolkit
 import { useAppSelector, useAppDispatch } from "@/store/hook";
 import { setBrand, setSegment, setChoose } from '@/store/slice/carHandle';
+import { showSeet } from "@/store/slice/stateHandle";
 
 // react-icon
 import { GrPowerReset } from "react-icons/gr";
@@ -43,11 +44,15 @@ export default function Content() {
     dispatch(setSegment(segment))
   }
 
+  const handleSeet = () => {
+    dispatch(showSeet())
+  }
+
   // 초기화
   const setClear = () => {
-  dispatch(setBrand(''))
-  dispatch(setSegment(''))
-  dispatch(setChoose([]))
+    dispatch(setBrand(''))
+    dispatch(setSegment(''))
+    dispatch(setChoose([]))
   }
   
   return(

@@ -1,5 +1,4 @@
 import { createSlice, PayloadAction } from "@reduxjs/toolkit";
-import * as types from '@/types/types';
 import { Car } from '@/types/types';
 
 // SelectOption Slice
@@ -13,7 +12,7 @@ const option: SelectOptionState = {
 }
 
 export const selectOptionSlice = createSlice({
-	name: 'selectOption',
+	name: 'carSelection',
   initialState: option,
   reducers: {
 		setBrand: (state, action: PayloadAction<string>) => {
