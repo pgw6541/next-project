@@ -1,7 +1,7 @@
 'use client'
 
 import { useEffect, useState } from "react";
-import list from './list.module.scss'
+import style from './carlist.module.scss'
 import Link from "next/link";
 import Image from "next/image";
 
@@ -49,44 +49,44 @@ export default function CarList(){
 
   return (
     // Car Section
-    <div className={`${list.car_section}`}>
+    <div className={`${style.car_section}`}>
       {
         cars?.length!=0 ?
         cars?.map((car, i)=> (
           <div key={i}>
             {/* Car */}
-            <div className={list.car_article}>
-              <Link className={list.img_ctn} href={`/detail/${car.id}`} >
+            <div className={style.car_article}>
+              <Link className={style.img_ctn} href={`/detail/${car.id}`} >
                 {/* 차량 이미지 */}
                 <Image
-                  className={list.img}
+                  className={style.img}
                   src={`https://raw.githubusercontent.com/pgw6541/CarSite/main/src/images/${car.imgUrl}.png`}
                   alt={car.name.en}
                   width={360}
                   height={153}
                 />
               </Link>
-              <div className={list.article}>
+              <div className={style.article}>
                 {/* 차량 이름 */}
-                <Link className={list.name} href={`/car/${car.id}`}>
+                <Link className={style.name} href={`/car/${car.id}`}>
                   <p>{car.brand.kr}&nbsp;</p>
                   <p>{car.name.kr}</p>
                 </Link>
 
                 {/* 펼쳐보기 버튼*/}
-                <div onClick={()=>{handleDetailSec(car.id)}} className={list.InfoBtn}>펼쳐보기</div>
+                <div onClick={()=>{handleDetailSec(car.id)}} className={style.InfoBtn}>펼쳐보기</div>
               </div>
             </div>
             {/* 펼쳐보기 Info */}
-            <div className={ car.showDetail ? `${list.info_section} ${list.show}` : `${list.info_section} ${list.hide}` } >
+            <div className={ car.showDetail ? `${style.info_section} ${style.show}` : `${style.info_section} ${style.hide}` } >
               {/* info_article 1 */}
-              <dl className={list.dl}>
+              <dl className={style.dl}>
                 <dt>가격</dt> <dd>{car.price.min}~{car.price.max}</dd>
                 <dt>연료</dt> <dd>{car.fuelTypes.map((fuelType, i) => (<div key={i}>{fuelType}</div>))}</dd>
                 <dt>옵션</dt> <dd>1-3</dd>
               </dl>
               {/* info_article 2 */}
-              <dl className={list.dl}>
+              <dl className={style.dl}>
                 <dt>옵션</dt> <dd>2-1</dd>
                 <dt>옵션</dt> <dd>2-2</dd>
                 <dt>옵션</dt> <dd>2-3</dd>

@@ -1,10 +1,10 @@
 import List from "./list"
-import Nav from "./nav"
+import Category from "./category"
 
 export default function Car() {
   return (
     <div className="container">
-      <Nav />
+      <Category />
       <List />
     </div>
   )

@@ -7,7 +7,7 @@ export default function Home() {
     <div>
       {/* 검색링크 */}
       <section className='link_container'>
-        <Link href={'/search'} scroll={false} ><p>검색</p></Link>
+        <Link href={'/carlist'} scroll={false} ><p>검색</p></Link>
       </section>
     </div>
   )
