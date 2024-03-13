@@ -8,15 +8,20 @@ import { useChoose, useBrandData, useSegmentData } from "@/util/useCarData";
 // redux toolkit
 import { useAppSelector, useAppDispatch } from "@/store/hook";
 import { setBrand, setSegment } from '@/store/slice/selectOption';
+import { setChoose } from '@/store/slice/chooseCar';
+
+// react-icon
+import { GrPowerReset } from "react-icons/gr";
 
 // Type
 import * as types from "@/types/types";
 
 export default function Content() {
+  const dispatch = useAppDispatch();
+  const chooseCar = useAppSelector(state => state.chooseCar);
+  
   const brandData = useBrandData(); // 제조사DB
   const segData = useSegmentData();
-  const dispatch = useAppDispatch();
-
   const [brandList, setBrandList] = useState<types.Brands[]>()  // 브랜드리스트
   const [segmentList, setSegmentList] = useState<string[]>() // 차급리스트
   const [brand, segment] = [useAppSelector(state => state.selectOption.brand), useAppSelector(state => state.selectOption.segment)]; // 브랜드, 차급선택
@@ -38,6 +43,13 @@ export default function Content() {
   const selectSegmentHandler = (segment: string) => {
     dispatch(setSegment(segment))
   }
+
+  // 초기화
+  const setClear = () => {
+  dispatch(setBrand(''))
+  dispatch(setSegment(''))
+  dispatch(setChoose([]))
+  }
   
   return(
     <div>
@@ -58,8 +70,14 @@ export default function Content() {
           </div>
         </li>
       </ul>
-      
 
+      {/* 하단 버튼 */}
+      <div className={search.bottom}>
+        <div className={search.bottomBtns}>
+          <div onClick={()=>{setClear()}} className={`${search.btn} ${search.reset}`}><GrPowerReset /></div>
+          <Link href={'/car'} className={`${search.btn} ${search.complete}`}>보러가기</Link>
+        </div>
+      </div>
     </div>
   )
 }
