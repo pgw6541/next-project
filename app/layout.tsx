@@ -2,8 +2,8 @@ import type { Metadata } from 'next'
 import { Inter } from 'next/font/google'
 import { Providers } from '@/store/provider'
 
-import Footer from '@/components/footer/footer'
-import Nav from '@/components/nav/nav'
+import Footer from '@/app/components/footer/footer'
+import Nav from '@/app/components/nav/nav'
 
 import './globals.scss'
 
