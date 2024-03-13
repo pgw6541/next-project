@@ -3,9 +3,11 @@ import Category from "./category"
 
 export default function Car() {
   return (
-    <div className="container">
+    <>
       <Category />
-      <List />
-    </div>
+      <div className="container">
+        <List />
+      </div>
+    </>
   )
 }
