@@ -1,11 +1,11 @@
-import { configureStore } from '@reduxjs/toolkit';
-import { combineReducers } from '@reduxjs/toolkit';
+import { configureStore } from "@reduxjs/toolkit";
+import { combineReducers } from "@reduxjs/toolkit";
 // storage 저장을 위해 redux-persist설치
-import storage from 'redux-persist/lib/storage';
-import { persistReducer } from 'redux-persist';
+import storage from "redux-persist/lib/storage";
+import { persistReducer } from "redux-persist";
 // Slice 불러오기
-import { selectOptionSlice } from './slice/selectOption';
-import { chooseCarSlice } from './slice/chooseCar';
+import { selectOptionSlice } from "./slice/selectOption";
+import { chooseCarSlice } from "./slice/chooseCar";
 
 const reducers = combineReducers({
   selectOption: selectOptionSlice.reducer,
@@ -15,7 +15,7 @@ const reducers = combineReducers({
 const persistConfig = {
   key: 'root',
   storage,
-  // whitelist: ['selectOption', 'chooseCar']
+  whitelist: ['selectOption', 'chooseCar']
 };
 
 const persistedReducer = persistReducer(persistConfig, reducers)
