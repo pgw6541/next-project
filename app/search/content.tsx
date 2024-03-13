@@ -16,9 +16,7 @@ export default function Content() {
   const brandData = useBrandData(); // 제조사DB
   const segData = useSegmentData();
   const dispatch = useAppDispatch();
-  
-  const [modalShow, setModalShow] = useState(false); // Modal
-  const [modalContent, setModalContent] = useState(''); // Mocal Content
+
   const [brandList, setBrandList] = useState<types.Brands[]>()  // 브랜드리스트
   const [segmentList, setSegmentList] = useState<string[]>() // 차급리스트
   const [brand, segment] = [useAppSelector(state => state.selectOption.brand), useAppSelector(state => state.selectOption.segment)]; // 브랜드, 차급선택
@@ -41,82 +39,27 @@ export default function Content() {
     dispatch(setSegment(segment))
   }
   
-  // 모달 열고 닫기
-  const openModal = (content: string) => {
-    setModalContent(content);
-    setModalShow(true);
-  }
-  
   return(
-    <>
+    <div>
       {/* 옵션 카테고리 */}
       <ul>
         {/* 제조사 Brand */}
         <li className={search.li} >
-          <div onClick={()=>{openModal('brand')}}>
+          <div onClick={()=>{}}>
             <div  className={search.title}><span>제조사</span></div>
             <div className={search.selected}>{brand}</div>
           </div>
         </li>
         {/* 차급 Segment */}
         <li className={search.li}>
-          <div onClick={()=>{openModal('segment')}}>
+          <div onClick={()=>{}}>
             <div className={search.title}><span>차급</span></div>
             <div className={search.selected}>{segment}</div>
           </div>
         </li>
       </ul>
+      
 
-      {/* Modal */}
-      <Modal show={modalShow} hide={!modalShow} >
-        { 
-          modalContent === 'brand'
-          ?
-          brandList?.map((brand, i)=>(
-            <div className={search.modal_img} key={i} onClick={()=>{selectBrandHandler(brand.name.kr); setModalShow(false)}} >
-              <Image
-              src={`https://raw.githubusercontent.com/pgw6541/CarSite/main/src/images/${brand.imgUrl}.png`}
-              alt={brand.name.kr}
-              fill
-              sizes="100px, 100px"
-              />
-            </div>  
-          ))
-          :
-          segmentList?.map((segment, i)=>(
-            <div className={search.modal_img} key={i} onClick={()=>{selectSegmentHandler(segment); setModalShow(false)}}>
-              <p>{segment}</p>
-            </div>
-          ))
-        }
-        <div className={search.modal_btns}>
-            <span className={search.close} onClick={()=>{setModalShow(false)}}>&times;</span>
-        </div>
-      </Modal>
-    </>
-  )
-}
-
-type ModalProps = {
-  show: boolean;
-  hide: boolean;
-  // onClose: () => void;
-  children: React.ReactNode;
-}
-
-function Modal({show, hide, children}: ModalProps) {
-  // false값이 들어오면 null값을 리턴
-  if(hide){
-    return null
-  }
-
-  return(
-    <div className={search.modal}>
-      <div className={search.modal_section}>
-        <div className={search.modal_content}>
-          {children}
-        </div>
-      </div>
     </div>
   )
 }

@@ -4,13 +4,17 @@ import search from "./search.module.scss"
 import SearchBar from './searchBar'
 import Content from "./content";
 import BottomNav from "./bottomNav"
+import BottomSeet from "./bottomSeet";
 
 export default function Search() {
   return (
-    <div className="container">
-      <SearchBar />
-      <Content />
-      <BottomNav />
-    </div>
+    <>
+      <div className="container">
+        {/* <SearchBar /> */}
+        <Content />
+        <BottomNav />
+      </div>
+      <BottomSeet />
+    </>
   )
 }
