@@ -4,6 +4,7 @@ const { webpack } = require('next/dist/compiled/webpack/webpack')
 
 const nextConfig = {
   images: {
+    formats: ['image/avif', 'image/webp'],
     remotePatterns: [
       {
         protocol: "https",
