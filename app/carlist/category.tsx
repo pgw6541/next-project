@@ -106,6 +106,7 @@ export default function Category() {
         {/* 브랜드 드롭다운 */}
         {isBrandDropdownVisible && (
           <div className={style.dropdown_content} ref={brandDropdownRef}>
+            <div className={style.dropdown_item} onClick={()=>{brandHandler(''); toggleSegmentDropdown();} }> 전체 </div>
             {
               brandList.map((brand, i) =>(
                 <div key={i} className={style.dropdown_item} onClick={()=>{brandHandler(brand.name.kr); toggleBrandDropdown();}}>
@@ -125,6 +126,7 @@ export default function Category() {
         {/* 차종 드롭다운 */}
         {isSegmentDropdownVisible && (
           <div className={style.dropdown_content} ref={segmentDropdownRef}>
+            <div className={style.dropdown_item} onClick={()=>{segmentHandler(''); toggleSegmentDropdown();} }> 전체 </div>
             {
               segmentList.map((seg, i) =>(
                 <div key={i} className={style.dropdown_item} onClick={()=>{segmentHandler(seg); toggleSegmentDropdown();} }> {seg} </div>
