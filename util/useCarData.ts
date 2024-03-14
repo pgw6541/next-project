@@ -27,7 +27,7 @@ export const useChoose = () => {
         dispatch(setChoose(filter))
       }
       if(!brand && !segment){
-        dispatch(setChoose([]))
+        dispatch(setChoose(carData))
       }
     };
 
