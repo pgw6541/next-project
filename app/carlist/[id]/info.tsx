@@ -40,7 +40,6 @@ export default function Info() {
               alt={car.name.en}
               width={360}
               height={153}
-              priority
             />
             :
             <div></div>

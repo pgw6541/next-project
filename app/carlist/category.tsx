@@ -92,6 +92,8 @@ export default function Category() {
   // ChooseCar 함수실행
   useChoose()
 
+  console.log(chooseCar)
+
   return(
     <div className={style.CAT_ctn}>
 
@@ -106,7 +108,7 @@ export default function Category() {
         {/* 브랜드 드롭다운 */}
         {isBrandDropdownVisible && (
           <div className={style.dropdown_content} ref={brandDropdownRef}>
-            <div className={style.dropdown_item} onClick={()=>{brandHandler(''); toggleSegmentDropdown();} }> 전체 </div>
+            <div className={style.dropdown_item} onClick={()=>{brandHandler(''); toggleBrandDropdown();} }> 전체 </div>
             {
               brandList.map((brand, i) =>(
                 <div key={i} className={style.dropdown_item} onClick={()=>{brandHandler(brand.name.kr); toggleBrandDropdown();}}>

@@ -5,9 +5,7 @@ import style from './carlist.module.scss'
 import Link from "next/link";
 import Image from "next/image";
 
-import { useAppSelector, useAppDispatch } from "@/store/hook"
-import { setChoose } from '@/store/slice/carHandle';
-import { useCarData } from "@/util/useCarData";
+import { useAppSelector } from "@/store/hook"
 import * as types from '@/types/types'
 
 interface showDetailCars extends types.Car {
@@ -15,46 +13,46 @@ interface showDetailCars extends types.Car {
 }
 
 export default function CarList(){
-  const carData = useCarData();
-  const dispatch = useAppDispatch();
-  const [selectBrand, selectSeg] = [useAppSelector(state => state.selectOption.brand), useAppSelector(state => state.selectOption.segment)]
+  const selectBrand = useAppSelector(state => state.selectOption.brand);
+  const selectSeg = useAppSelector(state => state.selectOption.segment);
+  const [loadedImages, setLoadedImages] = useState(0);
+  const [allImagesLoaded, setAllImagesLoaded] = useState(false);
   const chooseCar = useAppSelector( state => state.chooseCar)
-  const [cars, setCars] = useState<showDetailCars[]>()
-   
+
+  // 카테고리 변경을 감지하고 loadedImages 및 allImagesLoaded를 초기화
+  useEffect(() => {
+    setLoadedImages(0);
+    setAllImagesLoaded(false);
+  }, [selectBrand, selectSeg, chooseCar]);
+
+  // 모든 이미지 로드 되었는지 감지
   useEffect(()=>{
-    if(chooseCar.length===0){
-      console.log('비어있음')
+    console.log('변경감지')
+    // 선택된 차량이 없거나 || 모든 이미지가 로드되지 않았다면 로딩 상태를 false로 설정합니다.
+    if (chooseCar.length === 0 || loadedImages !== chooseCar.length) {
+      setAllImagesLoaded(false);
+    } else {
+      setAllImagesLoaded(true);
     }
-  // eslint-disable-next-line react-hooks/exhaustive-deps
-  }, [carData])
-
-  useEffect(()=>{
-    const addShowDetail = chooseCar.map( car => ({
-      ...car,
-      showDetail: false,
-    }))
-    // console.log(addShowDetail)
-    setCars(addShowDetail)
-  }, [carData, chooseCar])
-
-  const handleDetailSec = (id: number) =>{
-    // const thisCar = cars?.filter( e =>  e.id === id).map( e => e.showDetail = !e.showDetail)
-    const changeShow = cars?.map( car => car.id === id ? { ...car, showDetail: !car.showDetail} : car);
-    setCars(changeShow)
-  }
-
-  console.log(cars)
-
+  }, [loadedImages, chooseCar.length])
   
-
+  // 이미지 로딩 감지 - 완료 핸들러
+  const handleImageLoaded = () => {
+    setLoadedImages((prev) => prev + 1);
+  };
+  
+  console.log(loadedImages)
+  console.log(allImagesLoaded)
+  
   return (
     // Car Section
     <div className={`${style.car_section}`}>
       {
-        cars?.length!=0 ?
-        cars?.map((car, i)=> (
+        chooseCar ?
+        chooseCar.map((car, i)=> (
           <div key={i}>
             {/* Car */}
+            {/* 이미지 로딩중 */}
             <div className={style.car_article}>
               <Link className={style.img_ctn} href={`/detail/${car.id}`} >
                 {/* 차량 이미지 */}
@@ -64,38 +62,42 @@ export default function CarList(){
                   alt={car.name.en}
                   width={360}
                   height={153}
+                  onLoadingComplete={handleImageLoaded}
                 />
               </Link>
               <div className={style.article}>
                 {/* 차량 이름 */}
-                <Link className={style.name} href={`/carlist/${car.id}`}>
-                  <p>{car.brand.kr}&nbsp;</p>
-                  <p>{car.name.kr}</p>
-                </Link>
-
-                {/* 펼쳐보기 버튼*/}
-                <div onClick={()=>{handleDetailSec(car.id)}} className={style.InfoBtn}>펼쳐보기</div>
+                {
+                  allImagesLoaded 
+                  ?
+                  (
+                    <Link className={style.name} href={`/carlist/${car.id}`}>
+                      <p>{car.brand.kr}&nbsp;</p>
+                      <p>{car.name.kr}</p>
+                    </Link>
+                  ) 
+                  :
+                  (
+                    <Link className={style.name} href={`/carlist/${car.id}`}>
+                        <p>Brand&nbsp;</p>
+                        <p>Car_name</p>
+                    </Link>
+                  )
+                }
               </div>
-            </div>
-            {/* 펼쳐보기 Info */}
-            <div className={ car.showDetail ? `${style.info_section} ${style.show}` : `${style.info_section} ${style.hide}` } >
-              {/* info_article 1 */}
-              <dl className={style.dl}>
-                <dt>가격</dt> <dd>{car.price.min}~{car.price.max}</dd>
-                <dt>연료</dt> <dd>{car.fuelTypes.map((fuelType, i) => (<div key={i}>{fuelType}</div>))}</dd>
-                <dt>옵션</dt> <dd>1-3</dd>
-              </dl>
-              {/* info_article 2 */}
-              <dl className={style.dl}>
-                <dt>옵션</dt> <dd>2-1</dd>
-                <dt>옵션</dt> <dd>2-2</dd>
-                <dt>옵션</dt> <dd>2-3</dd>
-              </dl>
             </div>
           </div>
         ))
         :
         <div>검색된 차량이 없습니다.</div>
+      }
+      {/* 이미지 로딩중 표시 */}
+      {
+        !allImagesLoaded && (
+          <div className="loader">
+            <div className="spinner">
+          </div></div>
+        )
       }
     </div>
   )
