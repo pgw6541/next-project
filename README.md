@@ -24,7 +24,7 @@
 
 # 👨‍🔧 **개발 툴**
 
-![React](https://img.shields.io/badge/next.js-000000?style=react&logo=nextdotjs&logoColor=white)
+![Next](https://img.shields.io/badge/next.js-000000?style=react&logo=nextdotjs&logoColor=white)
 ![Typescript](https://img.shields.io/badge/TypeScript-3178C6?style=typescript&logo=typescript&logoColor=white)
 ![Redux](https://img.shields.io/badge/Redux/Toolkit-764ABC?style=redux&logo=redux&logoColor=white)
-![mui](https://img.shields.io/badge/SCSS-CC6699?style=mui&logo=sass&logoColor=white)
+![SCSS](https://img.shields.io/badge/SCSS-CC6699?style=mui&logo=sass&logoColor=white)
