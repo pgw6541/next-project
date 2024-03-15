@@ -33,9 +33,7 @@
       .select__txt {
         color: rgb(141, 103, 172);
       }
-      &:hover {
-
-      }
+      // &:hover {}
       &:active {
         .arrow__dropdown {
           transform: rotate(180deg);
@@ -123,17 +121,5 @@
         
       }
     }
-  }
-
-  .loading {
-    background-color: rgba(255, 255, 255, .5);
-
-    position: fixed;
-    left: 50%;
-    top: 50%;
-
-    transform: translate(-50%, -50%);
-
-    z-index: 3;
   }
 }
