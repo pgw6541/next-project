@@ -13,7 +13,7 @@
 
 ### ✈️ **배포**
 
-> Vercel 배포  
+> Vercel CI/CD
 > <https://next-project-car.vercel.app/>
 
 <br />
