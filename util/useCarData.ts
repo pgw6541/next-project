@@ -9,7 +9,7 @@ export const useChoose = () => {
   const dispatch = useAppDispatch();
   const brand = useAppSelector(state => state.selectOption).brand
   const segment = useAppSelector(state => state.selectOption).segment // 차량선택
-  const carDataUrl = 'https://gist.githubusercontent.com/pgw6541/3bec1be58457d14aab3e04fea8434458/raw/4076fd0af826abcdecc5a931d43f886a2c78f704/CarData.json'
+  const carDataUrl = 'https://gist.githubusercontent.com/pgw6541/9db3dd7dc7fe2c28d1c529e47b7d062b/raw/e9a1a7083d0a2bdda307c6250c67b0a3f04b1058/brandData.json'
   useEffect(() => {
     async function getCarData() {
       const carData = await fetchData(carDataUrl);
